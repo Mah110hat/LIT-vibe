@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+:root {
+  --background: #080604;
+  --foreground: #f7efe3;
+  --charcoal: #120b07;
+  --charcoal-soft: #1a100b;
+  --gold: #c9a45c;
+  --gold-bright: #e0b85a;
+  --red-deep: #8b1e16;
+  --red-warm: #b83224;
+  --muted: #d6c7ad;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Inter", "Noto Sans JP", system-ui, sans-serif;
+  --font-serif: "Noto Serif JP", Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(184, 50, 36, 0.22), transparent 34rem),
+    radial-gradient(circle at 82% 14%, rgba(201, 164, 92, 0.16), transparent 28rem),
+    linear-gradient(135deg, #080604 0%, #120b07 46%, #1a100b 100%);
+  color: var(--foreground);
+  font-family: "Inter", "Noto Sans JP", system-ui, sans-serif;
+}
+
+body::selection {
+  background: rgba(224, 184, 90, 0.34);
+  color: #fff7e7;
+}
+
+a,
+button {
+  touch-action: manipulation;
+}
+
+.font-display {
+  font-family: "Noto Serif JP", Georgia, serif;
+}
+
+.gold-text {
+  background: linear-gradient(90deg, #f2d690, #c9a45c 48%, #fff1c6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stone-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(201, 164, 92, 0.28);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.015)),
+    linear-gradient(135deg, rgba(18, 11, 7, 0.92), rgba(8, 6, 4, 0.82));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+}
+
+.stone-panel::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.08), transparent 20%),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 12px);
+  opacity: 0.42;
+}
+
+.meat-card {
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease;
+}
+
+.meat-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(224, 184, 90, 0.62);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+}
+
+.smoke-layer {
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(255, 244, 219, 0.12), transparent 30%),
+    radial-gradient(ellipse at 72% 28%, rgba(255, 255, 255, 0.09), transparent 24%),
+    radial-gradient(ellipse at 55% 78%, rgba(201, 164, 92, 0.11), transparent 28%);
+  filter: blur(22px);
+  opacity: 0.72;
+}
+
+.grill-lines {
+  background-image:
+    linear-gradient(90deg, transparent 0 18px, rgba(224, 184, 90, 0.15) 18px 19px, transparent 19px 38px),
+    linear-gradient(0deg, transparent 0 22px, rgba(255, 255, 255, 0.08) 22px 23px, transparent 23px 46px);
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 76%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+}
